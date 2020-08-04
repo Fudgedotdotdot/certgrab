@@ -34,13 +34,13 @@ func serverCert(ip string, port string, domain string){
 	// print the CommonName of the cert
 	CommonName := conn.ConnectionState().PeerCertificates[0].Subject.CommonName
 	if strings.HasSuffix(CommonName, domain){
-			fmt.Println(strings.TrimLeft(CommonName, "*."), ip)
+			fmt.Println(ip, "\t", strings.TrimLeft(CommonName, "*."))
 	}
 
 	// print the Subject Alternate Names
 	for _, name := range(cert){
 		if strings.HasSuffix(name, domain){
-			fmt.Println(strings.TrimLeft(name, "*."), ip)
+			fmt.Println(ip, "\t", strings.TrimLeft(name, "*."))
 		}
 	}
 	return
@@ -71,7 +71,7 @@ func main(){
 		// scanning stdin and launching goroutines
 		sc := bufio.NewScanner(os.Stdin)
 		for sc.Scan() {
-				ports := []string{"443", "4438", "9000", "591", "2082", "2087", "2095", "2096", "3000", "8000", "8001", "8008", "8080", "8083", "8443", "8834", "8888"}
+				ports := []string{"443", "4438", "9000", "591", "8000", "8001", "8008", "8080", "8083", "8443", "8834", "8888"}
 
 			for _, port := range ports {
 				ips <- fmt.Sprintf("%s:%s", sc.Text(), port)
