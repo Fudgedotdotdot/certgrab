@@ -17,7 +17,7 @@ import (
 func serverCert(ip string, port string, domain string){
 	// setting the timeout
 	d := &net.Dialer{
-		Timeout: time.Duration(3) * time.Second,
+		Timeout: time.Duration(5) * time.Second,
 	}
 
 	conn, err := tls.DialWithDialer(d, "tcp", ip+":"+port, &tls.Config{
@@ -56,7 +56,7 @@ func main(){
 		var wg sync.WaitGroup
 
 		// spawning goroutines
-		for i := 0; i < 150; i++{
+		for i := 0; i < 200; i++{
 			wg.Add(1)
 			go func(){
 				for ip_port := range ips{
@@ -71,11 +71,16 @@ func main(){
 		// scanning stdin and launching goroutines
 		sc := bufio.NewScanner(os.Stdin)
 		for sc.Scan() {
-				ports := []string{"443", "4438", "8080", "8443", "8888"}
+				// one day, we shall be able to run this script fast enough 
+				// to add more ports
+			ips <- fmt.Sprintf("%s:%s", sc.Text(), "443")
 
+			/*
+			ports := []string{"443"}
 			for _, port := range ports {
 				ips <- fmt.Sprintf("%s:%s", sc.Text(), port)
 			}
+			*/
 		}
 		close(ips)
 		wg.Wait()
