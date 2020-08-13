@@ -50,13 +50,16 @@ func main(){
 		// parsing flags
 		var domain string
 		flag.StringVar(&domain, "domain", "", "root domain - if not specified, will match everything")
+
+		var threads int
+		flag.IntVar(&threads, "threads", 150, "Number of threads ( default is 150 )")
 		flag.Parse()
 
 		ips := make(chan string)
 		var wg sync.WaitGroup
 
 		// spawning goroutines
-		for i := 0; i < 200; i++{
+		for i := 0; i < threads; i++{
 			wg.Add(1)
 			go func(){
 				for ip_port := range ips{
