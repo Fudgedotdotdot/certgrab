@@ -4,8 +4,7 @@
 `go get -u github.com/Fudgedotdotdot/certgrab`
 
 ## Usage
-First column is the requested IP/domain
-Second column is the results
+First column is the requested IP/domain - Second column is the results
 
 ```console
 # certgrab -h
