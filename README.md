@@ -33,4 +33,4 @@ No enough tools explain this.
 
 This tool starts a TLS handshake with the target, and then dumps the subject name
 & the alternate subject names. You can filter the output in order to only get
-the domains you're interested in with the -d flag.
+the domains you're interested in with the -domain flag.
