@@ -52,7 +52,7 @@ func main(){
 		flag.StringVar(&domain, "domain", "", "root domain - if not specified, will match everything")
 
 		var threads int
-		flag.IntVar(&threads, "threads", 150, "Number of threads ( default is 150 )")
+		flag.IntVar(&threads, "threads", 150, "Number of threads")
 		flag.Parse()
 
 		ips := make(chan string)
