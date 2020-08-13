@@ -11,6 +11,8 @@ First column is the requested IP/domain - Second column is the results
 Usage of certgrab:
   -domain string
         root domain - if not specified, will match everything
+  -threads int
+        Number of threads ( default is 150 ) (default 150)
 
 # cat domains.txt | certgrab
 www.google.com   www.google.com
