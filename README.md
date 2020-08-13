@@ -12,7 +12,7 @@ Usage of certgrab:
   -domain string
         root domain - if not specified, will match everything
   -threads int
-        Number of threads ( default is 150 ) (default 150)
+        Number of threads (default 150)
 
 # cat domains.txt | certgrab
 www.google.com   www.google.com
