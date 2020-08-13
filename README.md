@@ -1,5 +1,5 @@
 # certgrab
-
+Dumps certificate information - useful to increase the attack surface of a target by discovering more domains/subdomains.
 ## Installation
 `go get -u github.com/Fudgedotdotdot/certgrab`
 
