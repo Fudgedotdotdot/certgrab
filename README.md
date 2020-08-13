@@ -31,7 +31,7 @@ google.com       android.com
 ```
 
 ## How it works
-No enough tools explain this.
+Not enough tools explain this.
 
 This tool starts a TLS handshake with the target, and then dumps the subject name
 & the alternate subject names. You can filter the output in order to only get
